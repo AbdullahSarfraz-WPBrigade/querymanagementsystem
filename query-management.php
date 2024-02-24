@@ -214,7 +214,7 @@ session_start();
                     
                                 $_SESSION['user_data'] = $user_data;
                                 
-                                header("location: http://querymanagement.local/employeedashboard/");
+				wp_redirect(site_url('/employeedashboard'));
                                 
                                 
                             } 
@@ -503,7 +503,7 @@ function employee_shortcode() {
     session_start();
  
 if (!isset($_SESSION['user_data'])) {
-    header("location: http://localhost/sitevoitngsystem/loginform/");
+    wp_redirect(site_url('/loginform'));
     exit();
 }
 
@@ -647,7 +647,9 @@ function hrdashboard_shortcode() {
     session_start();
 
     if (!isset($_SESSION['user_data'])) {
-        header("location: http://querymanagement.local/loginform/");
+        
+	wp_redirect(home_url('/loginform'));
+	
         exit();
     }
 
